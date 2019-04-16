@@ -1,5 +1,6 @@
 package njuics.demos.petsalon.role;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 import njuics.demos.petsalon.model.NamedEntity;
 
