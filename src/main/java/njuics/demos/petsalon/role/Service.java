@@ -1,5 +1,6 @@
 package njuics.demos.petsalon.role;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 import njuics.demos.petsalon.model.BaseEntity;
 import njuics.demos.petsalon.model.ServiceCategory;
@@ -8,7 +9,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.util.Date;
 
-@Data
 @Entity
 //@Table(name = "services")
 public class Service extends BaseEntity {
@@ -25,7 +25,8 @@ public class Service extends BaseEntity {
   private ServiceCategory category;
 
   @ManyToOne
-  @JoinColumn(name = "pet")
+  @JoinColumn(name = "pet", referencedColumnName = "id")
+  @JsonBackReference
   private Pet pet;
 
   public Service() {
@@ -36,5 +37,37 @@ public class Service extends BaseEntity {
     this.setDate(date);
     this.setFee(fee);
     this.setCategory(category);
+  }
+
+  public Date getDate() {
+    return date;
+  }
+
+  public Double getFee() {
+    return fee;
+  }
+
+  public Pet getPet() {
+    return pet;
+  }
+
+  public ServiceCategory getCategory() {
+    return category;
+  }
+
+  public void setCategory(ServiceCategory category) {
+    this.category = category;
+  }
+
+  public void setDate(Date date) {
+    this.date = date;
+  }
+
+  public void setFee(Double fee) {
+    this.fee = fee;
+  }
+
+  public void setPet(Pet pet) {
+    this.pet = pet;
   }
 }
