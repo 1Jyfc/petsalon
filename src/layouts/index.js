@@ -11,7 +11,7 @@ function BasicLayout(props) {
         <Menu
           theme="dark"
           mode="horizontal"
-          defaultSelectedKeys={['2']}
+          // defaultSelectedKeys={['2']}
           style={{ lineHeight: '64px' }}
         >
           <Menu.Item key="1"><Link to="/owners">Owner</Link></Menu.Item>
@@ -19,8 +19,8 @@ function BasicLayout(props) {
           <Menu.Item key="3"><Link to="/services">Service</Link></Menu.Item>
         </Menu>
       </Header>
-      <Content>
-        {props.children}
+      <Content style={{ padding: '0 50px' }}>
+        <div style={{ background: '#fff', padding: 24, minHeight: 800 }}>{props.children}</div>
       </Content>
     </Layout>
   );
